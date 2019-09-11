@@ -8,8 +8,12 @@ from PIL import Image, ImageFont, ImageDraw, ImageChops
 
 from epsimplelib.waveshare_library import epd2in7
 
+# font discovery not optimal, todo
+this = sys.modules[__name__]
+this.dir_path = os.path.dirname(os.path.realpath(__file__))
+
 # Default font
-FONT_PATH            = 'FreeMonoBold.ttf'
+FONT_PATH            = 'Arial.ttf'
 FONT_SMALL_MAX       = ImageFont.truetype(FONT_PATH, 12)
 FONT_SMALL           = ImageFont.truetype(FONT_PATH, 14)
 FONT_NORMAL          = ImageFont.truetype(FONT_PATH, 18)
@@ -29,7 +33,8 @@ class EPScreen():
 	Manager of the screen
 	"""
 
-	def __init__(self, screen_orientation):
+	def __init__(self, screen_orientation, background):
+		self.background = BLACK
 		self.device = epd2in7.EPD()
 		self.device.init()
 
@@ -136,16 +141,17 @@ class EPScreen():
 		self.draw.rectangle((0, 0, self.width, 28), fill=BLACK)
 		self.add_text_middle(5, text, FONT_NORMAL, WHITE)
 
-	def add_text(self, pos, text, font=FONT_NORMAL):
+	def add_text(self, pos, text, font=FONT_NORMAL, fill):
 		"""
 		Add simple text
 		:param pos: (x,y)
 		:param text: Text to add
 		:param font: Font to use
+		:param fill: Text fill
 		:return:
 		"""
 
-		self.draw.text(pos, text, font=font, fill=BLACK)
+		self.draw.text(pos, text, font=font, fill)
 
 	def add_line(self, pos):
 		"""
