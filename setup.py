@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'epsimplelib',         # How you named your package folder (MyLib)
   packages = ['epsimplelib'],   # Chose the same as "name"
-  version = '0.6',      # Start with a small number and increase it with every change you make
+  version = '0.7',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Draw on e-ink screen on raspi',   # Give a short description about your library
   author = 'Elvis Glints',                   # Type in your name
@@ -11,7 +11,7 @@ setup(
   download_url = 'https://github.com/glints/ePaperLibrary/archive/03.tar.gz',    # I explain this later on
   keywords = ['e-ink', 'Raspberry', 'pi'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
-          'Pillow',
+          'pillow',
           'spidev',
           'RPi.GPIO',
       ],
