@@ -28,7 +28,7 @@ This ePaper hat is cheap compared to the PaPiRus e-Paper hat. The only problem i
 ## Installation
 
 ```bash
-pip install epsimlelib
+pip install epsimplelib
 ```
 
 
@@ -61,7 +61,7 @@ hello() # Physical screen not refreshed
 ## Author
 
 - Nicolas SAGOT - @Lyoko17220
-- Adjustments made by Elvis Glints - @glints
+- Adjustments made by Elvis Glints, PYPI package made by - @glints
 
 
 
