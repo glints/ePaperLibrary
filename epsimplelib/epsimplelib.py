@@ -6,7 +6,7 @@ Github: https://github.com/lyoko17220/ePaperLibrary
 
 from PIL import Image, ImageFont, ImageDraw, ImageChops
 
-import waveshare_library.epd2in7
+from epsimplelib import waveshare_library.epd2in7
 
 # Default font
 FONT_PATH            = 'FreeMonoBold.ttf'
