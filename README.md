@@ -27,7 +27,9 @@ This ePaper hat is cheap compared to the PaPiRus e-Paper hat. The only problem i
 
 ## Installation
 
-W.I.P
+```bash
+pip install epsimlelib
+```
 
 
 
@@ -49,7 +51,7 @@ hello() # Physical screen not refreshed
 
 
 
-## Ressources
+## Resources
 
 - The library uses the Original Library written by Waveshare. It can be [downloaded here](https://www.waveshare.com/wiki/File:2.7inch-e-paper-hat-code.7z). Modified to run on Python3
 - FreeMonoBold by GNU FreeFont
