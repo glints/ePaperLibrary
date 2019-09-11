@@ -3,3 +3,6 @@ setup.cfg
 setup.py
 epsimplelib/__init__.py
 epsimplelib/epsimplelib.py
+epsimplelib/waveshare_library/__init__.py
+epsimplelib/waveshare_library/epd2in7.py
+epsimplelib/waveshare_library/epdif.py
