@@ -155,3 +155,22 @@ class EPScreen():
 		"""
 
 		self.draw.line((pos[0], pos[1], pos[2], pos[3]), fill=BLACK)
+
+	def draw_img(self,img,coords):
+		"""
+		Add image
+		:param img: Image in greyscale
+		:param coords: position coordinates (x,y)
+		:return:
+		"""
+		self.image_live.paste( img, coords)
+
+	def draw_rotated_img(self,img,angle,size,coords):
+		"""
+		Add rotated image
+		:param img: Image in greyscale
+		:param angle: Rotation angle
+		:param coords: position coordinates (x,y)
+		"""
+		rot = img.rotate( angle, expand=1 ).resize(size)
+		self.image_live.paste( rot, coords)

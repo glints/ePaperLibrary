@@ -42,7 +42,7 @@ def hello():
 
 	esp.add_line((100, 100, 150, 100))
 	esp.update_screen()
-    
+
 hello()
 hello() # Physical screen not refreshed
 ```
@@ -59,7 +59,7 @@ hello() # Physical screen not refreshed
 ## Author
 
 - Nicolas SAGOT - @Lyoko17220
-
+- Adjustments made by Elvis Glints - @glints
 
 
 
