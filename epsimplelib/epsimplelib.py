@@ -34,7 +34,7 @@ class EPScreen():
 	"""
 
 	def __init__(self, screen_orientation, background):
-		self.background = BLACK
+		self.background = background
 		self.device = epd2in7.EPD()
 		self.device.init()
 
@@ -106,13 +106,13 @@ class EPScreen():
 
 	## Drawing functions
 
-	def add_text_middle(self, y, text, font, fill, width=-1, offset_x=0):
+	def add_text_middle(self, y, text, font, textcolor, width=-1, offset_x=0):
 		"""
 		Add text to middle of block
 		:param y: y in screen
 		:param text: text to add
 		:param font: font to use
-		:param fill: fill of text
+		:param textcolor: color of text
 		:param width: width of block
 		:param offset_x: offset in x of the block
 		:return:
@@ -129,38 +129,38 @@ class EPScreen():
 		if h - h_origin > 5:
 			offset_y = h - h_origin
 
-		self.draw.text((offset_x + (width) / 2 - w / 2, y - offset_y), text, font=font, fill=fill)
+		self.draw.text((offset_x + (width) / 2 - w / 2, y - offset_y), text, font=font, fill=textcolor)
 
-	def set_title(self, text):
+	def set_title(self, text, backgroundcolor, textcolor):
 		"""
 		Add title to screen
 		:param text:
 		:return:
 		"""
 
-		self.draw.rectangle((0, 0, self.width, 28), fill=BLACK)
-		self.add_text_middle(5, text, FONT_NORMAL, WHITE)
+		self.draw.rectangle((0, 0, self.width, 28), fill=backgroundcolor)
+		self.add_text_middle(5, text, FONT_NORMAL, textcolor)
 
-	def add_text(self, pos, text, font=FONT_NORMAL, fill):
+	def add_text(self, pos, text, textcolor, font=FONT_NORMAL):
 		"""
 		Add simple text
 		:param pos: (x,y)
 		:param text: Text to add
 		:param font: Font to use
-		:param fill: Text fill
+		:param textcolor: Text color
 		:return:
 		"""
 
-		self.draw.text(pos, text, font=font, fill)
+		self.draw.text(pos, text, font=font, fill=textcolor)
 
-	def add_line(self, pos):
+	def add_line(self, pos, linecolor):
 		"""
 		Add line
 		:param pos: Position xy start/end point
 		:return:
 		"""
 
-		self.draw.line((pos[0], pos[1], pos[2], pos[3]), fill=BLACK)
+		self.draw.line((pos[0], pos[1], pos[2], pos[3]), fill=linecolor)
 
 	def draw_img(self,img,coords):
 		"""
