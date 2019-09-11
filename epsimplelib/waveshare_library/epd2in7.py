@@ -26,7 +26,7 @@
 
 import RPi.GPIO as GPIO
 
-import waveshare_library.epdif as epdif
+from epsimplelib.waveshare_library import epdif
 
 # Display resolution
 EPD_WIDTH       = 176
@@ -222,7 +222,7 @@ class EPD:
         self.digital_write(self.reset_pin, GPIO.LOW)         # module reset
         self.delay_ms(200)
         self.digital_write(self.reset_pin, GPIO.HIGH)
-        self.delay_ms(200)    
+        self.delay_ms(200)
 
     def set_lut(self):
         self.send_command(LUT_FOR_VCOM)               # vcom
@@ -261,23 +261,23 @@ class EPD:
 
     def display_frame(self, frame_buffer):
         if (frame_buffer != None):
-            self.send_command(DATA_START_TRANSMISSION_1)           
+            self.send_command(DATA_START_TRANSMISSION_1)
             self.delay_ms(2)
             for i in range(0, self.width * self.height // 8):
-                self.send_data(0xFF)  
-            self.delay_ms(2)                  
+                self.send_data(0xFF)
+            self.delay_ms(2)
             self.send_command(DATA_START_TRANSMISSION_2)
             self.delay_ms(2)
             for i in range(0, self.width * self.height // 8):
-                self.send_data(frame_buffer[i])  
-            self.delay_ms(2)        
-            self.send_command(DISPLAY_REFRESH) 
+                self.send_data(frame_buffer[i])
+            self.delay_ms(2)
+            self.send_command(DISPLAY_REFRESH)
             self.wait_until_idle()
 
     # After this command is transmitted, the chip would enter the deep-sleep
     # mode to save power. The deep sleep mode would return to standby by
     # hardware reset. The only one parameter is a check code, the command would
-    # be executed if check code = 0xA5. 
+    # be executed if check code = 0xA5.
     # Use EPD::Reset() to awaken and use EPD::Init() to initialize.
     def sleep(self):
         self.send_command(DEEP_SLEEP)
@@ -285,31 +285,3 @@ class EPD:
         self.send_data(0xa5)
 
 ### END OF FILE ###
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
