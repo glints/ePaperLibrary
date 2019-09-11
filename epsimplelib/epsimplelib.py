@@ -1,7 +1,9 @@
 """
 ePaperLibrary for Waveshare e-Paper 2.7" Raspberry HAT
-
+original:
 Github: https://github.com/lyoko17220/ePaperLibrary
+new version:
+Github: https://github.com/glints/ePaperLibrary
 """
 
 from PIL import Image, ImageFont, ImageDraw, ImageChops
@@ -9,8 +11,6 @@ from PIL import Image, ImageFont, ImageDraw, ImageChops
 from epsimplelib.waveshare_library import epd2in7
 
 # font discovery not optimal, todo
-this = sys.modules[__name__]
-this.dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Default font
 FONT_PATH            = 'Arial.ttf'
@@ -62,8 +62,7 @@ class EPScreen():
 		elif self.screen_orientation == 'landscape':
 			self.width = DEVICE_HEIGHT
 			self.height = DEVICE_WIDTH
-
-		self.image_live = Image.new('1', (self.width, self.height), 255)
+		self.image_live = Image.new('1', (self.width, self.height), self.background)
 		self.draw = ImageDraw.Draw(self.image_live)
 
 	def update_screen(self):
